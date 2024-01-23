@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="Stylesheet" type="text/css" />
+    <style type="text/css"></style>
+    <title>Document</title>
+  </head>
+  <body>
+    <form style="position: absolute; text-align: center; background-color: grey; color: blue; width:500px ; height: 400px; method="get" onsubmit="return" testuj(this);">
+        <fieldset>
+        <script>
+            function testuj(f) {
+            
+              // pola text i textarea
+              if (f.txt1.value.length<1) { alert("wypełnij pole 1"); return false; }
+              if (f.txt2.value.length<1) { alert("wypełnij pole 2"); return false; }
+            
+              // lista rozwijana
+              if (f.lis1.selectedIndex<1) { alert("wybierz z listy"); return false; }
+            
+              // pole checkbox
+              if (!f.chx1.checked) { alert("zaznacz checkboxa"); return false; }
+            
+              // pole radio
+              for (i=0;i<f.rad1.length;i++) if (f.rad1[i].checked) var rad1c=1;
+              if (rad1c!=1) { alert("zaznacz radio"); return false; }
+            
+              return true;
+            }
+            </script>
+            pole 1:<br /><input type="text" name="txt1"><br />
+            pole 2:<br /><textarea name="txt2"></textarea><br />
+            lista 1:<br />
+            <select name="lis1">
+            <option>wybierz</option>
+            <option>opcja 1</option>
+            <option>opcja 2</option>
+            </select>
+            <br>
+            checkbox 1:<br>
+            <input type="checkbox" value="tak" name="chx1" />
+            zgadzam się na przetwarzanie danych<br>
+            <br>
+            radio 1:<br>
+            Stolicą Polski jest:
+            <br /><input type="radio" name="rad1" /> Warszawa
+            <br /><input type="radio" name="rad1" /> Szczecin
+            <br /><input type="radio" name="rad1" /> Kraków
+            <br />
+            <input type="submit" value="wyślij">
+		</fieldset>
+	</form>
+  </body>
+  </html>
